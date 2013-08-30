@@ -93,34 +93,3 @@
     return register;
 
 })(window || global);
-
-//Demonstration
-
-console.clear();
-
-var Person = Inject(function Person() {
-    return function () {
-        console.log("HI I'm Person");
-    };
-});
-var rlemon = Inject("rlemon",["Person"],function() {
-    return function () {
-        console.log("Hi, I'm rlemon I like slides");
-        var p = Person();
-        p();
-    };
-});
-
-var Zirak = Inject("Zirak",function(){
-    console.log("Third syntax just to show");
-});
-
-    var People = Inject(function People(Person,rlemon,Zirak,yo) {
-        var p = Person();
-        var r = rlemon();
-        r();
-        p();
-        Zirak();
-        console.log(yo);
-    });
-var pep = People("YOYOYO");
